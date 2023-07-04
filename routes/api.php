@@ -12,13 +12,13 @@ Route::get('/ping', function () {
     return ['pong' => true];
 });
 
-Route::get('/401', [AuthController::class, 'unauthorized'])->name('login');
+Route::get('/401', [AuthController::class, 'unauthorized'])->name('401');
 
-Route::post('/auth/login', [AuthController::class, 'login']);
+Route::post('/auth/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/auth/refresh', [AuthController::class, 'refresh'])->name('refresh');
+Route::post('/user', [AuthController::class, 'create'])->name('user.create');
 
-Route::post('/user', [UserController::class, 'create'])->name('user.create');
 Route::put('/user', [UserController::class, 'update'])->name('user.update');
 Route::post('/user/avatar', [UserController::class, 'updateAvatar'])->name('user.avatar');
 Route::post('/user/cover', [UserController::class, 'updateCover'])->name('user.cover');

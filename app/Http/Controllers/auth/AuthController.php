@@ -58,6 +58,11 @@ class AuthController extends Controller
 
     public function refresh()
     {
+        $token = Auth::refresh();
+        return [
+            'error' => '',
+            'token' => $token,
+        ];
     }
 
     public function create(Request $request)

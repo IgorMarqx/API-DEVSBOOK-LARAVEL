@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    private $loggedUser;
+
     public function __construct()
     {
         $this->middleware('auth:api');
+        $this->loggedUser = auth()->user();
     }
 
     public function read()
@@ -18,6 +21,11 @@ class UserController extends Controller
 
     public function update()
     {
+        $array = ['error' => ''];
+
+        
+
+        return $array;
     }
 
     public function updateAvatar()
